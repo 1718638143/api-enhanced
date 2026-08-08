@@ -1,19 +1,3 @@
-// server.js 顶部
-if (process.env.NETEASE_COOKIE) {
-  console.log('正在从环境变量注入网易云 Cookie...');
-  // 这里的 Cookie 模块路径需要根据你的项目结构调整
-  // 通常是 ./util/request 或者 ./module/login
-  try {
-    const requestModule = require('./util/request'); 
-    // 将环境变量赋值给全局 Cookie 对象
-    // 注意：有些版本是直接赋值字符串，有些是赋值对象
-    // 建议先尝试直接赋值字符串
-    requestModule.cookie = process.env.NETEASE_COOKIE; 
-  } catch (e) {
-    console.error('Cookie 注入失败，请检查路径:', e);
-  }
-}
-
 require('dotenv').config()
 const fs = require('fs')
 const path = require('path')
